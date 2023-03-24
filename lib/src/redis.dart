@@ -17,14 +17,17 @@ class Redis extends MineralPackage {
   @override
   Future<void> init () async {
     final environment = container.use<MineralEnvironment>();
-    redisGateway = RedisGateway(environment.getOrFail('REDIS_URL', message: 'The redis url was not provided'), environment.getOrFail('REDIS_PORT', message: 'The redis port was not provided'));
+    redisGateway = RedisGateway(
+        environment.getOrFail('REDIS_URL', message: 'The redis url was not provided'),
+        int.parse(environment.getOrFail('REDIS_PORT', message: 'The redis port was not provided'))
+    );
 
     await open();
   }
 
   Future<void> open () async {
     await redisGateway.open();
-    print('test');
+    print('Redis connected !');
   }
 
 }
