@@ -3,15 +3,18 @@ import 'package:redis/redis.dart';
 class RedisGateway {
   final String _uri;
   final int _port;
-  late final RedisConnection redisConnection;
+  late final redisConnection;
 
   RedisGateway(this._uri, this._port);
 
   String get uri => _uri;
 
   Future<void> open () async {
-    redisConnection = RedisConnection();
-    redisConnection.connect(_uri, _port);
+    redisConnection = await RedisConnection().connect(_uri, _port);
+  }
+
+  Future<Object> get (String key) async {
+    return redisConnection.get(key);
   }
 
   Future<void> close () async {
