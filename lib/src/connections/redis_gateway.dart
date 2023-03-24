@@ -27,4 +27,15 @@ class RedisGateway implements RedisContract {
   Future<void> set(String key, String value) async {
     return await redisConnection.set(key, value);
   }
+
+  @override
+  Future<void> del(String key) async {
+    return await redisConnection.send_object(['DEL', key]);
+  }
+
+  @override
+  Future<void> incr(String key, value) async {
+    return await redisConnection.send_object(['INCR', key, value]);
+  }
+
 }
