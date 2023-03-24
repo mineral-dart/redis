@@ -24,6 +24,7 @@ class Redis extends MineralPackage {
 
   Future<void> open () async {
     await redisGateway.open();
+    print('test');
   }
 
 }
