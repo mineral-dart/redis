@@ -22,4 +22,9 @@ class RedisGateway implements RedisContract {
   Future<dynamic> get(String key) async {
     return await redisConnection.get(key);
   }
+
+  @override
+  Future<void> set(String key, String value) async {
+    return await redisConnection.set(key, value);
+  }
 }
