@@ -13,10 +13,6 @@ class RedisGateway {
     redisConnection = await RedisConnection().connect(_uri, _port);
   }
 
-  Future<Object> get (String key) async {
-    return redisConnection.get(key);
-  }
-
   Future<void> close () async {
     redisConnection.close();
   }

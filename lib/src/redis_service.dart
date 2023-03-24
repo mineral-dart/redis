@@ -2,7 +2,7 @@ import 'package:mineral_environment/environment.dart';
 import 'package:mineral_package/mineral_package.dart';
 import 'package:mineral_redis/src/connections/redis_gateway.dart';
 
-class Redis extends MineralPackage {
+class RedisService extends MineralPackage {
   @override
   String namespace = 'Mineral/Plugins/Redis';
 
