@@ -1,6 +1,7 @@
+import 'package:mineral_redis/src/contracts/redis_contract.dart';
 import 'package:redis/redis.dart';
 
-class RedisGateway {
+class RedisGateway implements RedisContract {
   final String _uri;
   final int _port;
   late final redisConnection;
@@ -15,5 +16,10 @@ class RedisGateway {
 
   Future<void> close () async {
     redisConnection.close();
+  }
+
+  @override
+  Future<dynamic> get(String key) async {
+    return await redisConnection.get(key);
   }
 }

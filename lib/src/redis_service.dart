@@ -1,6 +1,7 @@
 import 'package:mineral_environment/environment.dart';
 import 'package:mineral_package/mineral_package.dart';
 import 'package:mineral_redis/src/connections/redis_gateway.dart';
+import 'package:mineral_redis/src/contracts/redis_contract.dart';
 
 class RedisService extends MineralPackage {
   @override
@@ -13,6 +14,8 @@ class RedisService extends MineralPackage {
   String description = 'The redis module was designed exclusively for the Mineral framework.';
 
   late RedisGateway redisGateway;
+
+
 
   @override
   Future<void> init () async {
