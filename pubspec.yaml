@@ -20,7 +20,7 @@ dev_dependencies:
   test: ^1.16.0
 
 dependencies:
+  mineral_contract: ^1.1.0
   mineral_environment: ^1.0.1
   mineral_ioc: ^2.0.0
-  mineral_package: ^1.1.0
   redis: ^3.1.0

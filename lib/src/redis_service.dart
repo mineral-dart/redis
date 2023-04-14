@@ -1,21 +1,11 @@
+import 'package:mineral_contract/mineral_contract.dart';
 import 'package:mineral_environment/environment.dart';
-import 'package:mineral_package/mineral_package.dart';
 import 'package:mineral_redis/src/connections/redis_gateway.dart';
-import 'package:mineral_redis/src/contracts/redis_contract.dart';
 
-class RedisService extends MineralPackage {
-  @override
-  String namespace = 'Mineral/Plugins/Redis';
-
-  @override
-  String label = 'Redis';
-
-  @override
-  String description = 'The redis module was designed exclusively for the Mineral framework.';
-
+class RedisService extends MineralPackageContract {
   late RedisGateway redisGateway;
 
-
+  RedisService(): super ('Redis', 'The redis module was designed exclusively for the Mineral framework.');
 
   @override
   Future<void> init () async {
